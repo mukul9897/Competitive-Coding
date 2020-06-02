@@ -2,7 +2,6 @@
 #define ll long long int
 #define ul unsigned long long int
 #define va vector<long long int> a 
-#define vb vector<long long int> b
 const ll M=1e9+7;
 const ll inf=1e18+5;
 using namespace std;
