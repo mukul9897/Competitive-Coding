@@ -1,22 +1,5 @@
 #include<bits/stdc++.h>
 #define ll long long int
-#define MAX 1000003
-#define MOD 1000000007
-#define vi vector<int>
-#define vll vector<ll>
-#define vvi vector<vector< int>>
-#define pb push_back
-#define clr(x) x.clear()
-#define sz(x) ((int)(x).size())
-#define rep(i, a, b) for(int (i) = (a); (i) < (b); (i)++)
-#define all(v) (v).begin(),(v).end()
-#define INF (int)1e9
-#define EPS 1e-9
-#define PI 3.1415926535897932384626433832795
-#define max1 INT_MAX
-#define min1 INT_MAX
-#define nothing 1000000007
-#define inf 1e18
 using namespace std;
 ll t;
 void solve2(ll lb,ll ub){
@@ -25,22 +8,29 @@ void solve2(ll lb,ll ub){
 	ll mid=(start+end)/2;
 	cout<<mid<<" ";
 	cin>>ans;
-	if(ans=='E') return;
+	if(ans=='E') 
+		return;
 	else if(ans=='L'){
 		ll x=(mid+1+end)/2;
-        cout<<x<<" ";
-        cin>>ans;
-        if(ans=='E') return;
-        else if(ans=='L') solve2(start,x-1);
-        else solve2(start,mid-1);
+        	cout<<x<<" ";
+        	cin>>ans;
+        	if(ans=='E') 
+			return;
+        	else if(ans=='L') 
+			solve2(start,x-1);
+        	else 
+			solve2(start,mid-1);
 	}
 	else{
 		ll x=(start+mid-1)/2;
-        cout<<x<<" ";
-        cin>>ans;
-        if(ans=='E') return;
-        else if(ans=='G') solve2(x+1,end);
-        else solve2(mid+1,end);
+        	cout<<x<<" ";
+        	cin>>ans;
+        	if(ans=='E') 
+			return;
+        	else if(ans=='G') 
+			solve2(x+1,end);
+        	else 
+			solve2(mid+1,end);
 	}
 }
 char c[4];
@@ -51,17 +41,24 @@ void solve1(ll mid,ll lb,ll ub){
     for(ll i=0;i<4;i++){
 		cout<<mid1<<" ";
 		cin>>c[i];
-		if(i%2==0) mp[c[i]]++;
-	    if(c[i]=='E') return;
-	    if(c[i]==c[i-1] && i>0) break;
-	    if(i%2==1) mp[c[i]]++;
+		if(i%2==0) 
+			mp[c[i]]++;
+	        if(c[i]=='E') 
+			return;
+	        if(c[i]==c[i-1] && i>0) 
+			break;
+	        if(i%2==1) 
+			mp[c[i]]++;
     }
     
 	if(mp['L']!=mp['G']){
-		if(mp['L']>mp['G']) solve1(mid1,lb,mid1-1);
-		else solve1(mid1,mid1+1,ub);
+		if(mp['L']>mp['G']) 
+			solve1(mid1,lb,mid1-1);
+		else 
+			solve1(mid1,mid1+1,ub);
 	}
-	else solve1(mid1,lb,ub);
+	else 
+		solve1(mid1,lb,ub);
  }
 int main(){
 	ll n;
