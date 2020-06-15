@@ -95,72 +95,35 @@ int main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(0);
     int t;cin>>t;
     while(t--){
-        ll n,q,flag=0;
-        cin>>n>>q;
-        if(n<=12){
-            vector<pt> points(n);
-            for(ll i=0;i<n;++i){
-                ll u,v;
-                cin>>u>>v;
-                points[i].x=u;points[i].y=v;
-            }
-           if(flag==0){
-           vector<pt> copy=points;
-           while(copy.size()>2){
-               convex_hull(copy);
-           }
-           copy.clear();
-           while(q--){
-           ll answer=0;
-           pt P;cin>>P.x>>P.y;
-           for(auto itr:ans){
-               bool ok=false;
-               for(ll i=0;i<itr.size();++i){
-                   if(!cw(itr[i],itr[(i+1)%itr.size()],P)) {
-                       ok=true;break;
-                   }
-               }
-               if(!ok) answer++;
-               else break;
-           }
-           cout<<answer<<endl;
-           }
-           ans.clear();
-           points.clear();
-        }
-    }
-    else{
-        vector<pt> points(n);
-            for(ll i=0;i<n;++i){
-                ll u,v;
-                cin>>u>>v;
-                if(u==0 || v==0){ points[i].x=u;points[i].y=v;}
-                else {points[i].x=0;points[i].y=0;}
-            }
-           if(flag==0){
-           vector<pt> copy=points;
-           while(copy.size()>2){
-               convex_hull(copy);
-           }
-           copy.clear();
-           while(q--){
-           ll answer=0;
-           pt P;cin>>P.x>>P.y;
-           for(auto itr:ans){
-               bool ok=false;
-               for(ll i=0;i<itr.size();++i){
-                   if(!cw(itr[i],itr[(i+1)%itr.size()],P)) {
-                       ok=true;break;
-                   }
-               }
-               if(!ok) answer++;
-               else break;
-           }
-           cout<<answer<<endl;
-           }
-           ans.clear();
-           points.clear();
-        }
-    }
-    }
+    	    ll n,q;
+            cin>>n>>q;
+	    vector<pt> points(n);
+	    for(ll i=0;i<n;++i){
+		ll u,v;
+		cin>>u>>v;
+		points[i].x=u;points[i].y=v;
+	    }
+	   vector<pt> copy=points;
+	   while(copy.size()>2){
+	       convex_hull(copy);
+	   }
+	   copy.clear();
+	   while(q--){
+		   ll answer=0;
+		   pt P;cin>>P.x>>P.y;
+		   for(auto itr:ans){
+		       bool ok=false;
+		       for(ll i=0;i<itr.size();++i){
+			   if(!cw(itr[i],itr[(i+1)%itr.size()],P)) {
+			       ok=true;break;
+			   }
+		       }
+		       if(!ok) answer++;
+		       else break;
+		   }
+		   cout<<answer<<endl;
+	   }
+	   ans.clear();	
+	   points.clear();
+	   }
 }
