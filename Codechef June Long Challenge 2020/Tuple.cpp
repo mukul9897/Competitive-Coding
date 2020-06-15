@@ -8,27 +8,12 @@ const ll inf = 1e18+5;
 const ll max1=1005; 
 using namespace std;
 const int us=-999999999;
-void fast(){cin.tie(0);cout.tie(0);ios_base::sync_with_stdio(0);}
-ll bs(ll arr[], ll l, ll r, ll x){ 
-	ll mid=0;
-    if (r >= l){
-		if (arr[mid] == x) return mid; 
-        if (arr[mid] > x) return bs(arr, l, mid - 1, x); 
-        return bs(arr, mid + 1, r, x);
-    }
-    return -1;
+void fast(){
+	cin.tie(0);
+	cout.tie(0);
+	ios_base::sync_with_stdio(0);
 }
-ll power(ll x,ul y,ll p){
-	ll res = 1;
-	x = x % p;
-	if(x == 0) return 0;
-	while (y > 0){
-		if (y & 1) res = (res*x) % p;
-		y = y>>1;
-		x = (x*x) % p;
-		}
-	return res;
-}
+
 int main(){
 	fast();
     int t;
